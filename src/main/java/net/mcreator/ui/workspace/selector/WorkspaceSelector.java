@@ -325,15 +325,15 @@ public final class WorkspaceSelector extends JFrame implements DropTargetListene
 	private void saveRecentWorkspaces() {
 		String serialized = gson.toJson(recentWorkspaces);
 		if (serialized != null && !serialized.isEmpty()) {
-			FileIO.writeStringToFile(serialized, UserFolderManager.getFileFromUserFolder("recentworkspaces"));
+			FileIO.writeStringToFile(serialized, UserFolderManager.getFileFromUserFolder("ProjectSpweed.json"));
 		}
 	}
 
 	private void reloadRecents() {
-		if (UserFolderManager.getFileFromUserFolder("recentworkspaces").isFile()) {
+		if (UserFolderManager.getFileFromUserFolder("ProjectSpweed.json").isFile()) {
 			try {
 				recentWorkspaces = gson.fromJson(
-						FileIO.readFileToString(UserFolderManager.getFileFromUserFolder("recentworkspaces")),
+						FileIO.readFileToString(UserFolderManager.getFileFromUserFolder("ProjectSpweed.json")),
 						RecentWorkspaces.class);
 				if (recentWorkspaces != null) {
 					List<RecentWorkspaceEntry> recentWorkspacesFiltered = new ArrayList<>();

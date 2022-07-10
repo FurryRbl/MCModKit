@@ -24,7 +24,7 @@ import java.nio.file.Files;
 public class UserFolderManager {
 
 	private static File getUserFolder() {
-		return new File(System.getProperty("user.home") + "/.mcreator/");
+		return new File(System.getProperty("user.home") + "/.mcmodkit/");
 	}
 
 	public static boolean createUserFolderIfNotExists() {

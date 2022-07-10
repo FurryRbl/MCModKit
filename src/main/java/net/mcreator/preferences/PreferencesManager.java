@@ -34,10 +34,10 @@ public class PreferencesManager {
 	public static PreferencesData PREFERENCES = new PreferencesData();
 
 	private static final Gson gson = new GsonBuilder().setPrettyPrinting().setLenient().create();
-	private static final File preferencesFile = UserFolderManager.getFileFromUserFolder("preferences");
+	private static final File preferencesFile = UserFolderManager.getFileFromUserFolder("setting.json");
 
 	public static void loadPreferences() {
-		if (!UserFolderManager.getFileFromUserFolder("preferences").isFile()) {
+		if (!UserFolderManager.getFileFromUserFolder("setting.json").isFile()) {
 			storePreferences(new PreferencesData());
 			LOG.info("Preferences not created yet. Loading defaults.");
 		} else {

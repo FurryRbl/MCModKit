@@ -108,8 +108,8 @@ Section "MCreator ${MCREATOR_VERSION}" Installation
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${MUI_PRODUCT}}" "NoModify" 1
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${MUI_PRODUCT}" "NoRepair" 1
 
-  ;add .mcreator file association
-  WriteRegStr HKCR ".mcreator" "" "MCreatorWorkspaceFile"
+  ;add .mcmodkit file association
+  WriteRegStr HKCR ".mcmodkit" "" "MCreatorWorkspaceFile"
   WriteRegStr HKCR "MCreatorWorkspaceFile" "" "MCreator workspace file"
   WriteRegStr HKCR "MCreatorWorkspaceFile\shell" "" "open"
   WriteRegStr HKCR "MCreatorWorkspaceFile\DefaultIcon" "" "$INSTDIR\mcreator.exe,0"
@@ -164,7 +164,7 @@ Section "Uninstall"
 
   ;Delete user data if preserve option was not selected
   ${If} $keepUserDataState <> 1
-    RMDir /r "$PROFILE\.mcreator\*.*"
+    RMDir /r "$PROFILE\.mcmodkit\*.*"
   ${EndIf}
 
   ;Delete Uninstaller And Unistall Registry Entries
@@ -172,7 +172,7 @@ Section "Uninstall"
   DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${MUI_PRODUCT}"
 
   DeleteRegKey HKCR "MCreatorWorkspaceFile"
-  DeleteRegKey HKCR ".mcreator"
+  DeleteRegKey HKCR ".mcmodkit"
 SectionEnd
 
 Function UninstallPrevious
